@@ -4,9 +4,12 @@
       <button class="btn btn-primary"
         (click)="onDisplayDetails()">Display Details</button>
       <p *ngIf="secretTextDisplayed">This paragraph is a secret</p>
-      <p *ngFor="let click of displayBtnClicks"
-         [ngStyle]="getBackgroundColor()"
-         [ngClass]="{'after-five': click > 4}">Clicked nr: {{ click }}</p>
+<!--      <p *ngFor="let click of displayBtnClicks"-->
+<!--         [ngStyle]="getBackgroundColor()"-->
+<!--         [ngClass]="{'after-five': click > 4}">Clicked nr: {{ click }}</p>      -->
+      <p *ngFor="let click of displayBtnClicks; let i = index"
+         [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+         [ngClass]="{'after-five': i >= 4}">Clicked at: {{ click }}</p>
       <ol>
         <li>Add A button which says 'Display Details'</li>
         <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>

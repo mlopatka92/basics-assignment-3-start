@@ -8,15 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   secretTextDisplayed = false;
   displayBtnClicks = [];
-  displayBtnClickCount = 0;
 
   onDisplayDetails() {
-    this.displayBtnClicks.push(++this.displayBtnClickCount);
+    // this.displayBtnClicks.push(this.displayBtnClicks.length + 1);
+    this.displayBtnClicks.push(new Date());
     this.secretTextDisplayed = !this.secretTextDisplayed;
   }
 
   getBackgroundColor() {
-    if(this.displayBtnClicks.length < 5) {
+    if (this.displayBtnClicks.length < 5) {
       return {};
     }
 
